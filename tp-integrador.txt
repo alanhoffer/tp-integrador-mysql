@@ -189,7 +189,7 @@ SELECT getPrecioPromedio() as precioavg
 
 
 
-# aSDASDKAJSDKASD
+# TRANSACTION
 
 START TRANSACTION;
 INSERT INTO Clientes (id, nombre, correo, direccion)
@@ -210,7 +210,7 @@ BEGIN
   ROLLBACK;
 END //
 
-# aSDASDKAJSDKASD
+# TRIGGER
 
 
 DELIMITER //
