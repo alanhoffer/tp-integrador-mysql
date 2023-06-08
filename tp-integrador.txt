@@ -1,0 +1,233 @@
+create database proyectoFinal;
+
+
+# Crea la tabla "Productos"
+create table Productos (id INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(50), precio FLOAT, stock INT, PRIMARY KEY (id));
+
+# Crea la tabla "Clientes"
+create table Clientes (id INT NOT NULL AUTO_INCREMENT, nombre VARCHAR(50), correo VARCHAR(64), direccion VARCHAR(255), PRIMARY KEY (id));
+
+# Crea la tabla "Compras"
+create table Compras (id INT NOT NULL AUTO_INCREMENT, cliente_id INT, producto_id INT, cantidad INT, fecha DATE, PRIMARY KEY (id), FOREIGN KEY (cliente_id) REFERENCES clientes(id), FOREIGN KEY (producto_id) REFERENCES productos(id));
+
+
+
+
+# INSERTING DATA
+
+# PRODUCTOS
+INSERT INTO Productos (id, nombre, precio, stock) VALUES
+  (1, 'Teclado mecánico', 79.99, 50),
+  (2, 'Mouse inalámbrico', 29.99, 30),
+  (3, 'Monitor 24 pulgadas', 199.99, 20),
+  (4, 'Auriculares gaming', 59.99, 40),
+  (5, 'Altavoces estéreo', 49.99, 25),
+  (6, 'Webcam HD', 39.99, 35),
+  (7, 'Impresora multifunción', 129.99, 50),
+  (8, 'Escáner de documentos', 89.99, 15),
+  (9, 'Disco duro externo 1TB', 79.99, 10),
+  (10, 'Router WiFi dual band', 59.99, 100),
+  (11, 'Tarjeta gráfica 8GB', 299.99, 40),
+  (12, 'Memoria RAM 16GB', 89.99, 20),
+  (13, 'SSD 500GB', 129.99, 30),
+  (14, 'Cámara de seguridad', 49.99, 25),
+  (15, 'UPS 1000VA', 149.99, 15);
+
+# CLIENTES
+INSERT INTO Clientes (id, nombre, correo, direccion) VALUES
+  (1, 'John Smith', 'johnsmith@example.com', '123 Main St'),
+  (2, 'Emma Johnson', 'emmajohnson@example.com', '456 Elm St'),
+  (3, 'Michael Davis', 'michaeldavis@example.com', '789 Oak St'),
+  (4, 'Sophia Taylor', 'sophiataylor@example.com', '321 Pine St'),
+  (5, 'Daniel Anderson', 'danielanderson@example.com', '654 Maple St'),
+  (6, 'Olivia Wilson', 'oliviawilson@example.com', '987 Cedar St'),
+  (7, 'James Lee', 'jameslee@example.com', '345 Birch St'),
+  (8, 'Mia Martinez', 'miamartinez@example.com', '678 Walnut St'),
+  (9, 'William Brown', 'williambrown@example.com', '901 Spruce St'),
+  (10, 'Ava Taylor', 'avataylor@example.com', '234 Oak St'),
+  (11, 'Ethan Garcia', 'ethangarcia@example.com', '567 Cedar St'),
+  (12, 'Isabella Johnson', 'isabellajohnson@example.com', '890 Elm St'),
+  (13, 'Noah Martinez', 'noahmartinez@example.com', '123 Pine St'),
+  (14, 'Sophia Robinson', 'sophiarobinson@example.com', '456 Maple St'),
+  (15, 'Liam Davis', 'liamdavis@example.com', '789 Birch St'),
+  (16, 'Olivia Thompson', 'oliviathompson@example.com', '234 Walnut St'),
+  (17, 'Lucas Lewis', 'lucaslewis@example.com', '567 Spruce St'),
+  (18, 'Emily Clark', 'emilyclark@example.com', '890 Oak St'),
+  (19, 'Henry Green', 'henrygreen@example.com', '123 Cedar St'),
+  (20, 'Avery Mitchell', 'averymitchell@example.com', '456 Elm St'),
+  (21, 'Benjamin Turner', 'benjaminturner@example.com', '789 Pine St'),
+  (22, 'Amelia Hall', 'ameliahall@example.com', '123 Maple St'),
+  (23, 'Alexander Hill', 'alexanderhill@example.com', '456 Birch St'),
+  (24, 'Mia Allen', 'miaallen@example.com', '789 Walnut St'),
+  (25, 'Charlotte Adams', 'charlotteadams@example.com', '123 Spruce St'),
+  (26, 'Sebastian Scott', 'sebastianscott@example.com', '456 Oak St'),
+  (27, 'Zoe Torres', 'zoetorres@example.com', '789 Cedar St'),
+  (28, 'Jackson Gonzalez', 'jacksongonzalez@example.com', '123 Elm St'),
+  (29, 'Penelope Rivera', 'peneloperivera@example.com', '456 Pine St'),
+  (30, 'Levi Coleman', 'levicoleman@example.com', '789 Maple St');
+
+
+# COMPRAS
+INSERT INTO Compras (id, cliente_id, producto_id, cantidad, fecha) VALUES
+  (1, 1, 1, 2, '2023-01-01'),
+  (2, 1, 2, 1, '2023-02-05'),
+  (3, 2, 1, 3, '2023-03-10'),
+  (4, 3, 4, 1, '2023-04-15'),
+  (5, 4, 3, 2, '2023-05-20'),
+  (6, 5, 5, 1, '2023-06-01'),
+  (7, 6, 1, 1, '2023-06-15'),
+  (8, 7, 2, 2, '2023-07-05'),
+  (9, 8, 3, 1, '2023-07-20'),
+  (10, 9, 4, 3, '2023-08-10'),
+  (11, 10, 5, 2, '2023-08-25'),
+  (12, 11, 1, 1, '2023-09-05'),
+  (13, 12, 2, 2, '2023-09-15'),
+  (14, 13, 3, 1, '2023-10-01'),
+  (15, 14, 4, 2, '2023-10-20'),
+  (16, 15, 5, 3, '2023-11-05'),
+  (17, 16, 1, 1, '2023-11-15'),
+  (18, 17, 2, 1, '2023-11-30'),
+  (19, 18, 3, 2, '2023-12-10'),
+  (20, 19, 4, 1, '2023-12-25'),
+  (21, 20, 5, 2, '2023-12-31'),
+  (22, 1, 1, 3, '2023-01-05'),
+  (23, 2, 2, 1, '2023-02-10'),
+  (24, 3, 3, 2, '2023-03-15'),
+  (25, 4, 4, 1, '2023-04-20'),
+  (26, 5, 5, 2, '2023-05-05'),
+  (27, 6, 1, 1, '2023-06-10'),
+  (28, 7, 2, 2, '2023-07-15'),
+  (29, 8, 3, 1, '2023-08-20'),
+  (30, 9, 4, 3, '2023-09-05'),
+  (31, 10, 5, 2, '2023-10-15'),
+  (32, 11, 1, 1, '2023-11-20'),
+  (33, 12, 2, 2, '2023-12-01'),
+  (34, 13, 3, 1, '2023-12-15'),
+  (35, 14, 4, 2, '2023-12-30'),
+  (36, 15, 5, 3, '2023-01-02'),
+  (37, 16, 1, 1, '2023-02-08'),
+  (38, 17, 2, 1, '2023-03-12'),
+  (39, 18, 3, 2, '2023-04-17'),
+  (40, 19, 4, 1, '2023-05-22'),
+  (41, 20, 5, 2, '2023-06-06'),
+  (42, 1, 1, 3, '2023-06-18'),
+  (43, 2, 2, 1, '2023-07-08'),
+  (44, 3, 3, 2, '2023-07-23'),
+  (45, 4, 4, 1, '2023-08-05'),
+  (46, 5, 5, 2, '2023-08-25'),
+  (47, 6, 1, 1, '2023-09-12'),
+  (48, 7, 2, 2, '2023-09-18'),
+  (49, 8, 3, 1, '2023-10-05'),
+  (50, 9, 4, 3, '2023-10-20'),
+  (51, 10, 5, 2, '2023-11-10'),
+  (52, 11, 1, 1, '2023-11-25'),
+  (53, 12, 2, 2, '2023-12-05'),
+  (54, 13, 3, 1, '2023-12-15'),
+  (55, 14, 4, 2, '2023-12-31');
+
+
+
+#SELECT JOIN Para obtener informacion
+
+SELECT *
+FROM compras
+JOIN clientes ON compras.cliente_id=clientes.id;
+
+#Agrego la columna descunetos
+ALTER TABLE productos ADD descuento INT
+
+#CAMBIO EL VALOR DE DESCUENTO A 30 DEL ITEM 1
+UPDATE productos SET descuento=30 WHERE id=1;
+
+# CREAR LA VIEW PARA VER LOS PRODUCTOS CON DESCUENTO
+CREATE VIEW PRODUCTOS_CON_DESCUENTO  AS 
+SELECT * FROM productos WHERE descuento IS NOT NULL
+
+
+#MUESTRO LA VIEW DE TODOS LOS PRODUCTOS CON DESCUENTO
+SELECT *
+FROM PRODUCTOS_CON_DESCUENTO;
+
+
+#CREO UN INDEX EN LA TABLA PRODUCTOS COLUMNA NOMBRE
+CREATE INDEX index_productos_nombre
+ON productos (nombre);
+
+#CREO EL STORE PROCEDURE PARA OBTENER TODAS LAS COMPRAS DE UN LCINETE
+
+DELIMITER //
+CREATE PROCEDURE cantidadComprasById(IN ClienteId INT, OUT cantidad INT)
+BEGIN
+	SELECT COUNT(*) INTO cantidad FROM compras WHERE cliente_id = ClienteId;
+END //
+
+
+#OBTENGO EL RESULTADO
+CALL cantidadComprasById(1, @resultado);
+
+SELECT @resultado;
+
+
+# CREAMOS LA FUNCION PARA OBTENER LOS PRECIOS PROMEDIO
+
+DELIMITER //
+
+CREATE FUNCTION getPrecioPromedio() RETURNS FLOAT DETERMINISTIC
+BEGIN
+ DECLARE precioPromedio FLOAT;
+  
+	SELECT AVG(precio) INTO precioPromedio FROM productos;
+  RETURN precioPromedio;
+END 
+
+//
+DELIMITER ;
+
+
+# OBTENER PRECIO PROMEDIO COMO PRECIOAVG
+SELECT getPrecioPromedio() as precioavg
+
+
+
+# aSDASDKAJSDKASD
+
+START TRANSACTION;
+INSERT INTO Clientes (id, nombre, correo, direccion)
+VALUES (31, 'Nuevo Cliente', 'nuevo_cliente@example.com', 'Nueva Dirección');
+INSERT INTO Compras (id, cliente_id, producto_id, cantidad, fecha)
+VALUES (56, 31, 1, 2, '2023-05-04');
+COMMIT;
+
+
+DELIMITER //
+START TRANSACTION;
+BEGIN
+  INSERT INTO Clientes (id, nombre, correo, direccion)
+  VALUES (32, 'Otro Cliente', 'otro_cliente@example.com', 'Otra Dirección');
+  INSERT INTO Compras (id, cliente_id, producto_id, cantidad, fecha)
+  VALUES (57, 32, 2, 3, '2023-05-05');
+
+  ROLLBACK;
+END //
+
+# aSDASDKAJSDKASD
+
+
+DELIMITER //
+CREATE TRIGGER ActualizarStock
+AFTER INSERT ON Compras
+FOR EACH ROW
+BEGIN
+  UPDATE Productos
+  SET stock = stock - NEW.cantidad
+  WHERE id = NEW.producto_id;
+END //
+
+
+INSERT INTO Compras (id, cliente_id, producto_id, cantidad, fecha)
+VALUES (60, 1, 1, 1, '2023-05-06');
+
+SELECT stock FROM Productos WHERE id = 1;
+
+
+
